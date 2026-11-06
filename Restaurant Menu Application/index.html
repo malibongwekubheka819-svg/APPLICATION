@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu Management App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Chef's Menu Manager</h1>
+
+        <!-- Add / Edit Form -->
+        <div class="card">
+            <h2 id="form-title">Add New Menu Item</h2>
+            <form id="menu-form">
+                <input type="hidden" id="item-index" value="-1">
+                
+                <div class="form-group">
+                    <label for="item-name">Item Name:</label>
+                    <input type="text" id="item-name" required placeholder="e.g., Caesar Salad">
+                </div>
+
+                <div class="form-group">
+                    <label for="item-price">Price ($):</label>
+                    <input type="number" id="item-price" step="0.01" required placeholder="e.g., 45.00">
+                </div>
+
+                <div class="form-group">
+                    <label for="item-course">Course:</label>
+                    <select id="item-course" required>
+                        <option value="">-- Select Course --</option>
+                        <option value="Starter">Starter</option>
+                        <option value="Main Course">Main Course</option>
+                        <option value="Dessert">Dessert</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="save-btn" class="btn primary">Save Item</button>
+            </form>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="card">
+            <h2>Search and Filter</h2>
+            <div class="filter-controls">
+                <input type="text" id="search-input" placeholder="Search by name...">
+                <select id="filter-course">
+                    <option value="All">All Courses</option>
+                    <option value="Starter">Starter</option>
+                    <option value="Main Course">Main Course</option>
+                    <option value="Dessert">Dessert</option>
+                </select>
+                <button id="clear-btn" class="btn secondary">Clear</button>
+            </div>
+        </div>
+
+        <!-- Menu Statistics -->
+        <div class="card stats-card">
+            <h2>Menu Statistics</h2>
+            <div class="stats-grid">
+                <p>Total Items: <span id="total-items">0</span></p>
+                <p>Average Price: $<span id="avg-price">0.00</span></p>
+                <p>Starters: <span id="count-starter">0</span></p>
+                <p>Main Courses: <span id="count-main">0</span></p>
+                <p>Desserts: <span id="count-dessert">0</span></p>
+            </div>
+        </div>
+
+        <!-- Menu List -->
+        <div class="card">
+            <h2>Current Menu Items</h2>
+            <div id="menu-list" class="menu-list">
+                <!-- Items will load here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
